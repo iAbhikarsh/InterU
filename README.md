@@ -1,3 +1,31 @@
+# InterU — Angular migration
+
+This workspace contains a migrated Angular app (scaffold) using Angular Material.
+
+Quick start
+
+1. Install dependencies:
+
+```powershell
+npm install
+```
+
+2. Install Angular Material (recommended):
+
+```powershell
+npx ng add @angular/material
+```
+
+3. Run the dev server:
+
+```powershell
+npm start
+```
+
+Notes
+
+- The original static pages are under `subjects/`. The Angular components are in `src/app/subjects/` and use the original content as placeholders.
+- If you don't have the Angular CLI installed globally, use `npx ng` as shown above.
 # InterU
 
 Repository scaffold for the InterU project.

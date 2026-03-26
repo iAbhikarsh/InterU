@@ -4,6 +4,7 @@
   "projects": {
     "interu-angular": {
       "projectType": "application",
+      "root": "",
       "sourceRoot": "src",
       "architect": {
         "build": {
@@ -27,5 +28,8 @@
       }
     }
   },
-  "defaultProject": "interu-angular"
+  "defaultProject": "interu-angular",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,4 +1,5 @@
 /* Migrated styles from original site */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 :root{--bg:#f7f9fc;--primary:#0b5cff;--muted:#555}
 html,body{height:100%;margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#222}
 .site-header{background:white;padding:28px 20px;border-bottom:1px solid #e6e9ef}
