@@ -1,0 +1,22 @@
+# OS
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.py[cod]
+env/
+venv/
+
+# Visual Studio Code
+.vscode/
+
+# Idea
+.idea/
+
+# Logs
+*.log
