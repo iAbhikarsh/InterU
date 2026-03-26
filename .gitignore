@@ -20,3 +20,24 @@ venv/
 
 # Logs
 *.log
+
+# Angular
+dist/
+out-tsc/
+.angular/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.angular/cache/17.3.17/angular-webpack/f22627364804a4e5a9bf7e98bea4e68a366d03a0/0.pack
+.angular/cache/17.3.17/angular-webpack/f22627364804a4e5a9bf7e98bea4e68a366d03a0/index.pack
