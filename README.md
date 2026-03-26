@@ -10,3 +10,34 @@ Repository scaffold for the InterU project.
 ## Notes
 
 - License: none selected. Add a `LICENSE` file if desired.
+
+## GitHub Pages (Preview site)
+
+This repository now includes a simple static GitHub Pages site for interview
+preparation across multiple subjects. Files for the site live at the repository
+root and in `subjects/`.
+
+To publish the site on GitHub Pages from the `master` branch (your plan):
+
+1. Commit and push the repo to GitHub on the `master` branch.
+2. On GitHub, go to the repository Settings → Pages.
+3. Under "Source", choose the `master` branch and `/ (root)` (or `docs/` if you prefer).
+4. Save — the site will be available at `https://<your-username>.github.io/<repo-name>/`.
+
+Next steps:
+
+- Create a `dev` branch and make feature changes there.
+- Replace the placeholder subject pages in `subjects/` with content and examples.
+- Optionally add a GitHub Action to validate or build the site if you introduce a static site generator.
+
+Automatic deployment
+
+This repository includes a GitHub Actions workflow that automatically deploys the
+site to GitHub Pages whenever you push to the `master` branch. The workflow is
+located at `.github/workflows/deploy-pages.yml` and packages the `index.html`,
+`assets/`, and `subjects/` directories into a Pages artifact which GitHub then
+publishes.
+
+If you prefer to publish from `docs/` instead, let me know and I can move the
+site files and update the workflow accordingly.
+
