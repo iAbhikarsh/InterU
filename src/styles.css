@@ -1,0 +1,14 @@
+/* Migrated styles from original site */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+:root{--bg:#f7f9fc;--primary:#0b5cff;--muted:#555}
+html,body{height:100%;margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#222}
+.site-header{background:white;padding:28px 20px;border-bottom:1px solid #e6e9ef}
+.site-header h1{margin:0;font-size:26px}
+.nav{padding:16px 20px}
+.nav ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+.nav a{display:inline-block;padding:8px 12px;background:white;border:1px solid #e6e9ef;border-radius:6px;color:var(--primary);text-decoration:none}
+.content{padding:20px}
+.footer{padding:16px 20px;color:var(--muted);font-size:14px;border-top:1px solid #e6e9ef;background:white}
+
+mat-sidenav-container, mat-sidenav-content { height:100vh; }
+.content-wrapper{padding:20px}
