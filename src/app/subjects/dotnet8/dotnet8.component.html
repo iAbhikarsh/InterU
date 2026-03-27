@@ -1,7 +1,28 @@
 <mat-card>
-  <mat-card-title>.NET 8</mat-card-title>
+  <mat-card-header>
+    <div mat-card-avatar style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 4px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+      <mat-icon style="color: white;">api</mat-icon>
+    </div>
+    <mat-card-title>.NET 8</mat-card-title>
+    <mat-card-subtitle>Latest Framework Features</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
   <mat-card-content>
-    <p>Placeholder for .NET 8 topics: new features, performance, hosting models.</p>
-    <p><a routerLink="/">← Back to home</a></p>
+    <p>Explore the latest features, performance enhancements, and hosting models in .NET 8.</p>
+    <div style="margin-top: 16px;">
+      <p>Key Topics:</p>
+      <ul style="margin: 8px 0;">
+        <li>New .NET 8 features and APIs</li>
+        <li>Performance improvements</li>
+        <li>Host models and deployment</li>
+      </ul>
+    </div>
   </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button mat-button color="primary" routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </button>
+  </mat-card-actions>
 </mat-card>

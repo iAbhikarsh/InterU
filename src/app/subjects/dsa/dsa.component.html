@@ -1,7 +1,28 @@
 <mat-card>
-  <mat-card-title>Data Structures & Algorithms</mat-card-title>
+  <mat-card-header>
+    <div mat-card-avatar style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); border-radius: 4px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+      <mat-icon style="color: white;">data_structure</mat-icon>
+    </div>
+    <mat-card-title>Data Structures & Algorithms</mat-card-title>
+    <mat-card-subtitle>Core Computer Science Concepts</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
   <mat-card-content>
-    <p>Placeholder for DSA topics: arrays, trees, graphs, complexity, practice problems.</p>
-    <p><a routerLink="/">← Back to home</a></p>
+    <p>Master fundamental data structures and algorithms including arrays, trees, graphs, and complexity analysis.</p>
+    <div style="margin-top: 16px;">
+      <p>Key Topics:</p>
+      <ul style="margin: 8px 0;">
+        <li>Data structures: arrays, trees, graphs, hash tables</li>
+        <li>Sorting and searching algorithms</li>
+        <li>Time and space complexity analysis</li>
+      </ul>
+    </div>
   </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button mat-button color="primary" routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </button>
+  </mat-card-actions>
 </mat-card>

@@ -1,16 +1,23 @@
-<h1 mat-dialog-title>Add Question & Answer</h1>
+<h1 mat-dialog-title>
+  <mat-icon inline>edit_note</mat-icon>Add Question & Answer
+</h1>
 <div mat-dialog-content>
-  <mat-form-field appearance="fill" style="width:100%;">
+  <mat-form-field appearance="outline" style="width:100%; margin-bottom: 16px;">
     <mat-label>Question</mat-label>
-    <input matInput [(ngModel)]="data.question" />
+    <input matInput [(ngModel)]="data.question" placeholder="What is your question?" />
+    <mat-icon matPrefix>help</mat-icon>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" style="width:100%;">
+  <mat-form-field appearance="outline" style="width:100%;">
     <mat-label>Answer</mat-label>
-    <textarea matInput rows="4" [(ngModel)]="data.answer"></textarea>
+    <textarea matInput rows="5" [(ngModel)]="data.answer" placeholder="Provide a detailed answer..."></textarea>
+    <mat-icon matPrefix>info</mat-icon>
   </mat-form-field>
 </div>
 <div mat-dialog-actions align="end">
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!data.question.trim() || !data.answer.trim()">Save</button>
+  <button mat-stroked-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!data.question.trim() || !data.answer.trim()">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
 </div>
