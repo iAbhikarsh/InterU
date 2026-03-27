@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { QaDialogComponent, QaDialogData } from './qa-dialog.component';
 
 interface QaItem {
   question: string;
@@ -12,25 +15,28 @@ interface QaItem {
 })
 export class AppComponent {
   title = 'InterU';
-
-  questionText = '';
-  answerText = '';
   qaList: QaItem[] = [];
+  isHandset = false;
 
-  addQa() {
-    const question = this.questionText.trim();
-    const answer = this.answerText.trim();
-    if (!question || !answer) {
-      return;
-    }
+  constructor(private dialog: MatDialog, private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe(result => {
+        this.isHandset = result.matches;
+      });
+  }
 
-    this.qaList.push({
-      question,
-      answer
+  openAddQaDialog() {
+    const dialogRef = this.dialog.open(QaDialogComponent, {
+      width: '500px',
+      data: { question: '', answer: '' } as QaDialogData
     });
 
-    this.questionText = '';
-    this.answerText = '';
+    dialogRef.afterClosed().subscribe((result: QaDialogData | undefined) => {
+      if (result && result.question.trim() && result.answer.trim()) {
+        this.qaList.push({ question: result.question.trim(), answer: result.answer.trim() });
+      }
+    });
   }
 
   removeQa(index: number) {

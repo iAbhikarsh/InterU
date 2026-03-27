@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Add Question & Answer</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" style="width:100%;">
+    <mat-label>Question</mat-label>
+    <input matInput [(ngModel)]="data.question" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width:100%;">
+    <mat-label>Answer</mat-label>
+    <textarea matInput rows="4" [(ngModel)]="data.answer"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!data.question.trim() || !data.answer.trim()">Save</button>
+</div>

@@ -1,2 +1,107 @@
-/* minimal component styles */
-.content-wrapper{padding:16px}
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.app-sidenav {
+  width: 240px;
+}
+
+.sidenav-header {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.toolbar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.chip {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.app-content {
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+.qa-card {
+  width: 100%;
+  max-width: 980px;
+}
+
+.qa-card mat-card-content {
+  display: grid;
+  gap: 12px;
+}
+
+.text-muted {
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 8px;
+}
+
+.mat-list-item {
+  align-items: center;
+}
+
+.qa-question {
+  font-weight: 600;
+}
+
+.qa-answer {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.content-wrapper {
+  padding: 16px;
+  width: 100%;
+  max-width: 980px;
+}
+
+@media (max-width: 960px) {
+  .app-sidenav {
+    width: 220px;
+  }
+
+  .qa-card,
+  .content-wrapper {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .app-content {
+    padding: 12px;
+  }
+
+  .main-toolbar {
+    min-height: 56px;
+  }
+
+  .toolbar-title {
+    font-size: 1rem;
+  }
+}
+

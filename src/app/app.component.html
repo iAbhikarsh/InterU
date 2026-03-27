@@ -1,57 +1,74 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="app-sidenav"
+    [mode]="isHandset ? 'over' : 'side'"
+    [opened]="!isHandset"
+    fixedInViewport
+  >
+    <mat-toolbar color="primary" class="sidenav-header">Topics</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/csharp">C#</a>
-      <a mat-list-item routerLink="/dotnet8">.NET 8</a>
-      <a mat-list-item routerLink="/angular">Angular</a>
-      <a mat-list-item routerLink="/azure">Azure</a>
-      <a mat-list-item routerLink="/ci-cd">CI/CD</a>
-      <a mat-list-item routerLink="/system-design">System Design</a>
-      <a mat-list-item routerLink="/dsa">Data Structures & Algorithms</a>
+      <a mat-list-item routerLink="/csharp" (click)="isHandset && drawer.close()">C#</a>
+      <a mat-list-item routerLink="/dotnet8" (click)="isHandset && drawer.close()">.NET 8</a>
+      <a mat-list-item routerLink="/angular" (click)="isHandset && drawer.close()">Angular</a>
+      <a mat-list-item routerLink="/azure" (click)="isHandset && drawer.close()">Azure</a>
+      <a mat-list-item routerLink="/ci-cd" (click)="isHandset && drawer.close()">CI/CD</a>
+      <a mat-list-item routerLink="/system-design" (click)="isHandset && drawer.close()">System Design</a>
+      <a mat-list-item routerLink="/dsa" (click)="isHandset && drawer.close()">Data Structures & Algorithms</a>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">InterU — Interview Prep</mat-toolbar>
-
-    <div class="qa-form" style="margin: 16px; max-width: 600px;">
-      <h2>Add Question & Answer</h2>
-
-      <mat-form-field class="full-width" appearance="outline" style="width:100%; margin-bottom:8px;">
-        <mat-label>Question</mat-label>
-        <input matInput [(ngModel)]="questionText" placeholder="Enter question" />
-      </mat-form-field>
-
-      <mat-form-field class="full-width" appearance="outline" style="width:100%; margin-bottom:8px;">
-        <mat-label>Answer</mat-label>
-        <textarea matInput rows="3" [(ngModel)]="answerText" placeholder="Enter answer"></textarea>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" (click)="addQa()" [disabled]="!questionText.trim() || !answerText.trim()">
-        Add Q&A
+    <mat-toolbar color="primary" class="main-toolbar">
+      <button
+        mat-icon-button
+        aria-label="Toggle menu"
+        (click)="drawer.toggle()"
+        *ngIf="isHandset"
+      >
+        <mat-icon>menu</mat-icon>
       </button>
-    </div>
+      <span class="toolbar-title">InterU — Interview Prep</span>
+      <span class="spacer"></span>
+      <span class="chip">Material look</span>
+    </mat-toolbar>
 
-    <div class="qa-list" style="margin: 16px; max-width: 720px;">
-      <h2>Questions</h2>
+    <div class="app-content">
+      <mat-card class="qa-card">
+        <mat-card-header>
+          <mat-card-title>Questions & Answers</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="text-muted">Add curated interview Q&amp;A entries to review in one place.</p>
+          <button mat-raised-button color="primary" (click)="openAddQaDialog()">Add Question & Answer</button>
+        </mat-card-content>
+      </mat-card>
 
-      <mat-list *ngIf="qaList.length; else noQa">
-        <mat-list-item *ngFor="let item of qaList; index as i">
-          <div style="width: 100%;">
-            <strong>{{ i + 1 }}. {{ item.question }}</strong>
-            <p>{{ item.answer }}</p>
-            <button mat-stroked-button color="warn" (click)="removeQa(i)">Remove</button>
-          </div>
-        </mat-list-item>
-      </mat-list>
+      <mat-card class="qa-card">
+        <mat-card-header>
+          <mat-card-title>List</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list *ngIf="qaList.length; else noQa">
+            <mat-list-item *ngFor="let item of qaList; index as i">
+              <mat-icon matListIcon>question_answer</mat-icon>
+              <div matLine class="qa-question">{{ i + 1 }}. {{ item.question }}</div>
+              <div matLine class="qa-answer">{{ item.answer }}</div>
+              <button mat-icon-button color="warn" aria-label="Remove" (click)="removeQa(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
 
-      <ng-template #noQa>
-        <p>No question added yet.</p>
-      </ng-template>
-    </div>
+          <ng-template #noQa>
+            <p>No question added yet.</p>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
 
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
